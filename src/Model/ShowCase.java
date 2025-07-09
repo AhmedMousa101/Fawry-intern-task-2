@@ -1,3 +1,5 @@
+package Model;
+import Service.Customer;
 public class ShowCase extends Book {
     public ShowCase(String ISBN, String title, int year, double price) {
         super(ISBN, title, year, price);

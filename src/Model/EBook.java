@@ -1,3 +1,7 @@
+package Model;
+import Service.Customer;
+import Service.Mail;
+
 public class EBook extends Book {
     private String FileType;
 
@@ -8,7 +12,7 @@ public class EBook extends Book {
 
     @Override
     public double sell(int quantity, Customer customer){
-        SendToMail(customer.getEmail());
+        Mail.SendMail(this, customer.getEmail());
         return quantity * price;
     }
 
@@ -18,9 +22,6 @@ public class EBook extends Book {
     @Override
     public String getType(){return "EBook";}
 
-    public void SendToMail(String email){
-        // TO DO
-    }
 
     @Override
     public void addBook() {}

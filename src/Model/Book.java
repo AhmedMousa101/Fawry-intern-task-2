@@ -1,4 +1,6 @@
-public abstract class Book {
+package Model;
+import Service.Customer;
+public abstract class Book implements Comparable<Book> {
     protected String ISBN, title;
     protected int year;
     protected double price;
@@ -20,4 +22,19 @@ public abstract class Book {
     public abstract String getType();
     public abstract void addBook();
     public abstract boolean DecreaseBooks();
+
+    @Override
+    public int compareTo(Book other) {
+        int Year_Compare = Integer.compare(this.getYear(), other.getYear());
+        if (Year_Compare != 0){
+            return Year_Compare;
+        }
+
+        int Title_Compare = this.getTitle().compareTo(other.getTitle());
+        if (Title_Compare != 0){
+            return Title_Compare;
+        }
+
+        return this.getISBN().compareTo(other.getISBN());
+    }
 }

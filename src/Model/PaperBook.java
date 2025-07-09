@@ -1,3 +1,7 @@
+package Model;
+import Service.Customer;
+import Service.Shipping;
+
 public class PaperBook extends Book {
     private int InStock;
 
@@ -12,7 +16,7 @@ public class PaperBook extends Book {
             throw new RuntimeException("Not Available");
         }
         InStock -= quantity;
-        Ship(customer.getAddress());
+        Shipping.ship(this, customer.getAddress());
         return quantity * price;
     }
 
@@ -25,10 +29,6 @@ public class PaperBook extends Book {
     public String getType(){return "PaperBook";}
 
     public int getQuantity() {return InStock;}
-
-    private void Ship(String address){
-        /// TO DO
-    }
 
     @Override
     public void addBook(){

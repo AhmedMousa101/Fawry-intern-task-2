@@ -1,4 +1,6 @@
+package Model;
 import java.util.*;
+import Service.Customer;
 
 public class BookStore {
     Map<String, Book> books = new TreeMap<>();
